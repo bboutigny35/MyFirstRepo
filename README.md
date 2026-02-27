@@ -60,7 +60,7 @@ Interfaces / réseaux physiques/logiques :
 - 10.35.37.75   → Contrôle de domaine secondaire -> Backup (Windows Serveur 2025)
 - 10.35.37.85   → DHCP + DNS de backup
 - 10.35.37.97   → Serveur de logs centralisé (Grafana + Loki)
-- 
+
 ## 🗺️ Architecture réseau globale
 
 
