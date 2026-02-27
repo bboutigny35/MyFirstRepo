@@ -11,7 +11,7 @@ Un **HomeLab** moderne, léger et flexible basé sur **Proxmox VE** comme hyperv
 
 ## 🖥️ Matériel utilisé
 
-### Promox VE
+***Promox VE***
 | Composant          | Modèle / Specs                              | Remarques                              |
 |--------------------|---------------------------------------------|----------------------------------------|
 | Fabricant          | HP                                          |                                        |
@@ -22,9 +22,8 @@ Un **HomeLab** moderne, léger et flexible basé sur **Proxmox VE** comme hyperv
 | Stockage données   | 1× SSD 238.5 Go                             |                                        |
 | Carte réseau       | Intel I225-V / I226-V ou dual 2.5 GbE       |                                        |
 
-<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/9de62a1a-f2ce-47e9-9013-6a2ae7d8915d" />
 
-### Routeur
+***Routeur***
 | Composant          | Modèle / Specs                              | Remarques                              |
 |--------------------|---------------------------------------------|----------------------------------------|
 | Fabricant          | Linksys                                     |                                        |
@@ -35,8 +34,33 @@ Un **HomeLab** moderne, léger et flexible basé sur **Proxmox VE** comme hyperv
 | WLAN Hardware      | Marvell 88W8964                             | 2.4 Ghz (b/g/n) | 5.0 Ghz (a/n/ac)     |
 | ETHERNET           | 5 ports (1 Gbit) dont 1 WAN                 |                                        |
 
-<img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/41eb2a18-7d32-4b23-9269-a939c92f8306" />
+## 📡 État actuel du réseau (février 2026)
 
+Internet  
+↓  
+**Freebox** (modem/routeur FAI – mode bridge ou routeur)  
+↓ (WAN)  
+**Linksys WRT3200ACM** – OpenWrt (routeur/firewall principal)
+
+Interfaces / réseaux physiques/logiques :
+
+| Interface OpenWrt | Réseau            | Masque         | Utilisation principale                  | Équipements connectés                                      |
+|-------------------|-------------------|----------------|-----------------------------------------|-------------------------------------------------------------|
+| LAN1 (eth0.?)     | 10.35.37.0/24     | /24            | Réseau principal – serveurs & services  | CD (120), DHC (122), DNS1 (110), DNS2 (115), Web (50), CD secondaire (75), DHC/DNS backup (85), Logs (97) |
+| LAN2              | 10.35.38.0/24     | /24            | Réseau secondaire (invités ? tests ?)   | (à détailler)                                               |
+| WLAN              | 172.16.37.0/24    | /24            | WiFi principal                          | Téléphones, PC portables, tablettes, IoT légers             |
+
+**Adresses IP statiques notables sur LAN1 (10.35.37.0/24)** :
+
+- 10.35.37.50   → Serveur web (Nginx)
+- 10.35.37.110  → DNS primaire (Windows Server 2025)
+- 10.35.37.115  → DNS secondaire (Windows Serveur 2025)
+- 10.35.37.120  → Contrôleur de domaine (Windows Serveur 2025)
+- 10.35.37.122  → Serveur DHCP principal (Windows Serveur 2025)
+- 10.35.37.75   → Contrôle de domaine secondaire -> Backup (Windows Serveur 2025)
+- 10.35.37.85   → DHCP + DNS de backup
+- 10.35.37.97   → Serveur de logs centralisé (Grafana + Loki)
+- 
 ## 🗺️ Architecture réseau globale
 
 
