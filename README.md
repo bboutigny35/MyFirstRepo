@@ -16,7 +16,7 @@ Un **HomeLab** moderne, léger et flexible basé sur **Proxmox VE** comme hyperv
 
 ## 🖥️ Matériel utilisé
 
-# Promox VE
+### Promox VE
 | Composant          | Modèle / Specs                              | Remarques                              |
 |--------------------|---------------------------------------------|----------------------------------------|
 | Fabricant          | HP                                          |                                        |
@@ -27,7 +27,7 @@ Un **HomeLab** moderne, léger et flexible basé sur **Proxmox VE** comme hyperv
 | Stockage données   | 1× SSD 238.5 Go                             |                                        |
 | Carte réseau       | Intel I225-V / I226-V ou dual 2.5 GbE       |                                        |
 
-# Routeur
+### Routeur
 | Composant          | Modèle / Specs                              | Remarques                              |
 |--------------------|---------------------------------------------|----------------------------------------|
 | Fabricant          | Linksys                                     |                                        |
